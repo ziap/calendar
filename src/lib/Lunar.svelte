@@ -63,12 +63,12 @@
         padding: 1rem;
     }
 
-    .lunar h3 {
+    h3 {
         font-size: 1.8rem;
         margin: 0 0 0.5rem 0;
     }
 
-    .lunar p {
+    p {
         font-size: 1.2rem;
         margin: 0;
     }

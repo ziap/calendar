@@ -30,7 +30,7 @@
 </script>
 
 <blockquote>
-    <span>{quote.content}</span>
+    {quote.content}
     <footer>
         &mdash; <cite>{quote.author}</cite>
     </footer>
@@ -49,7 +49,7 @@
         font-style: italic;
     }
 
-    blockquote > footer {
+    footer {
         color: #005a73;
         text-align: right;
         padding-top: 1rem;
@@ -57,7 +57,7 @@
         border: 0;
     }
 
-    blockquote cite {
+    cite {
         font-style: normal;
     }
 </style>
