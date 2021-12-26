@@ -1,0 +1,19 @@
+{
+  "name": "calendar",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "concurrently \"svelte-kit dev\" \"dotnet run -c Debug\"",
+    "build": "svelte-kit build && dotnet publish -c Release",
+    "preview": "dotnet run -c Release"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-static": "next",
+    "@sveltejs/kit": "next",
+    "concurrently": "^6.5.1",
+    "svelte": "^3.44.0"
+  },
+  "type": "module",
+  "dependencies": {
+    "lunar-calendar-ts-vi": "^1.0.2"
+  }
+}
