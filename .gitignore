@@ -1,6 +1,7 @@
+# SvelteKit files
 .DS_Store
 node_modules
-/build
+wwwroot/
 /.svelte-kit
 /package
 .env
