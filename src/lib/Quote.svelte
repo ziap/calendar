@@ -1,18 +1,27 @@
 <script>
     import quotes from "$lib/json/quotes.json";
 
+    /**@type {Date}*/
     export let date;
 
+    /**
+     * 64-bit FNV-1a hashing algorithm - Randomize the order of the quotes
+     * @param {number | bigint} x - Input number
+     * @returns {number} The hash value % the length of the quotes
+     */
     function hash(x) {
         x = BigInt(x);
         let h = BigInt("14695981039346656037");
         for (let i = BigInt(0); i < BigInt(64); i += BigInt(8)) {
             h ^= (x >> i) & BigInt(0xff);
-            h *= BigInt(1099511628211);
+            h *= BigInt("1099511628211");
             h &= (BigInt(1) << BigInt(64)) - BigInt(1);
         }
         return (
-            (h & ((BigInt(1) << BigInt(32)) - BigInt(1))) ^ (h >> BigInt(32))
+            Number(
+                (h & ((BigInt(1) << BigInt(32)) - BigInt(1))) ^
+                    (h >> BigInt(32))
+            ) % quotes.length
         );
     }
 
@@ -25,7 +34,7 @@
                     3600 /
                     24
                 )
-            ) % BigInt(500)
+            )
         ];
 </script>
 

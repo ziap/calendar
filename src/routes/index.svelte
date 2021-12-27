@@ -17,13 +17,19 @@
                 year: "numeric",
                 month: "long",
                 day: "numeric",
-            }) + " | Lịch vạn niên"}</title
+            })} | Lịch vạn niên</title
         >
+    {:else}
+        <title>Lịch vạn niên</title>
     {/if}
 </svelte:head>
 <div class="container">
     <img src="/bg.jpg" alt="background" />
     {#if date}
+        <header>
+            <h2 class="month">Tháng {date.getMonth() + 1}</h2>
+            <h3 class="year">{date.getFullYear()}</h3>
+        </header>
         <Solar {date} />
         <Lunar {date} />
     {/if}
@@ -51,5 +57,26 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+    }
+
+    header {
+        background-color: #fff;
+        box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.14),
+            0 3px 3px -2px rgba(0, 0, 0, 0.12), 0 1px 8px 0 rgba(0, 0, 0, 0.2);
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .month {
+        font-size: 1.5rem;
+        margin: 0;
+    }
+
+    .year {
+        font-size: 1.2rem;
+        margin-top: 0.2rem;
+        margin-bottom: 0;
     }
 </style>

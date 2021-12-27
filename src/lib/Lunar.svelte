@@ -1,4 +1,5 @@
 <script>
+    /**@type {Date}*/
     export let date;
     import { Lunar } from "lunar-calendar-ts-vi";
 
