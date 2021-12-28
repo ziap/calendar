@@ -2,7 +2,7 @@
   "name": "calendar",
   "version": "0.0.1",
   "scripts": {
-    "dev": "concurrently \"svelte-kit dev\" \"dotnet run -c Debug\"",
+    "dev": "concurrently --kill-others \"svelte-kit dev\" \"dotnet run -c Debug\"",
     "build": "svelte-kit build && dotnet publish -c Release",
     "preview": "dotnet run -c Release"
   },
