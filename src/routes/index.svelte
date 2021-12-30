@@ -5,8 +5,8 @@
     import DatePicker from "$lib/DatePicker.svelte";
     import { onMount } from "svelte";
 
-    let date = new Date(0);
-
+    /**@type {Date}*/
+    let date;
     onMount(() => (date = new Date()));
 </script>
 
@@ -14,14 +14,16 @@
     <title>Lịch vạn niên</title>
 </svelte:head>
 
-<div class="container">
-    <Header bind:date />
-    <div class="display">
-        <Solar {date} />
-        <Lunar {date} />
+{#if date}
+    <div class="container">
+        <Header bind:date />
+        <div class="display">
+            <Solar {date} />
+            <Lunar {date} />
+        </div>
+        <DatePicker bind:date />
     </div>
-    <DatePicker bind:date />
-</div>
+{/if}
 
 <style>
     .container {

@@ -32,15 +32,19 @@
         {#if d.getMonth() == month}
             <button
                 class="date"
-                title={d.toLocaleString('vi-VN', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
+                title={d.toLocaleString("vi-VN", {
+                    weekday: "long",
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                })}
                 class:active={d.getDate() == date.getDate()}
                 on:click={() => (date = d)}
             >
                 <div class="solar">{d.getDate()}</div>
                 <div class="lunar">
-                    {lunars[i].lunarDate}
-                    {#if lunars[i].lunarDate == 1}
-                        / {lunars[i].lunarMonth}
+                    {lunars[i].lunarDate}{#if lunars[i].lunarDate == 1}
+                        /{lunars[i].lunarMonth}
                     {/if}
                 </div>
             </button>
@@ -49,9 +53,9 @@
         {/if}
     {/each}
     <footer>
-        <button class="today-btn" on:click={() => (date = new Date())}
-            >Hôm nay</button
-        >
+        <button class="today-btn" on:click={() => (date = new Date())}>
+            Hôm nay
+        </button>
     </footer>
 </main>
 
@@ -67,7 +71,7 @@
 
     .weekday {
         font-size: 1.2rem;
-        padding: 1rem;
+        padding: 1rem 0;
         font-weight: 400;
     }
 
@@ -97,7 +101,6 @@
     .date.active {
         background: #12cfe8;
         color: #121212;
-        margin: 0.5rem;
         border-radius: 1rem;
     }
 
@@ -131,5 +134,19 @@
     .today-btn:hover {
         background: #12cfe8;
         color: #121212;
+    }
+
+    .today-btn:active {
+        background: #0b7c8b;
+    }
+
+    @media (max-width: 800px) {
+        header {
+            padding: 0;
+        }
+
+        main {
+            padding: 2em 0;
+        }
     }
 </style>
