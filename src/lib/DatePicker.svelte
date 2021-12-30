@@ -32,6 +32,7 @@
         {#if d.getMonth() == month}
             <button
                 class="date"
+                title={d.toLocaleString('vi-VN', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
                 class:active={d.getDate() == date.getDate()}
                 on:click={() => (date = d)}
             >
