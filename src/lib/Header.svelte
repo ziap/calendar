@@ -2,68 +2,67 @@
     /**@type {Date}*/
     export let date;
 
-    function reset() {
-        date = new Date();
+    function move(last = true) {
+        return () =>
+            (date = new Date(
+                date.getFullYear(),
+                date.getMonth() + (last ? -1 : 1),
+                1
+            ));
     }
 </script>
 
 <header>
     <section>
-        <button on:click={reset} title="Quay lại hôm nay">
+        <button on:click={move(true)} title="Tháng trước">
             <svg
-                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+                focusable="false"
                 class="icon"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+                role="img"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512"
+                ><path
+                    fill="currentColor"
+                    d="M77.25 256l137.4-137.4c12.5-12.5 12.5-32.75 0-45.25s-32.75-12.5-45.25 0l-160 160c-12.5 12.5-12.5 32.75 0 45.25l160 160C175.6 444.9 183.8 448 192 448s16.38-3.125 22.62-9.375c12.5-12.5 12.5-32.75 0-45.25L77.25 256zM269.3 256l137.4-137.4c12.5-12.5 12.5-32.75 0-45.25s-32.75-12.5-45.25 0l-160 160c-12.5 12.5-12.5 32.75 0 45.25l160 160C367.6 444.9 375.8 448 384 448s16.38-3.125 22.62-9.375c12.5-12.5 12.5-32.75 0-45.25L269.3 256z"
+                /></svg
             >
-                <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-                />
-            </svg>
         </button>
     </section>
     <section>
         <h2 class="month">Tháng {date.getMonth() + 1}</h2>
         <h3 class="year">{date.getFullYear()}</h3>
-        <div class="picker"></div>
     </section>
     <section>
-        <button title="Chỉnh ngày" on:click={() => alert("WIP")}>
+        <button on:click={move(false)} title="Tháng sau">
             <svg
-                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+                focusable="false"
                 class="icon"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+                role="img"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512"
+                ><path
+                    fill="currentColor"
+                    d="M246.6 233.4l-160-160c-12.5-12.5-32.75-12.5-45.25 0s-12.5 32.75 0 45.25L178.8 256l-137.4 137.4c-12.5 12.5-12.5 32.75 0 45.25C47.63 444.9 55.81 448 64 448s16.38-3.125 22.62-9.375l160-160C259.1 266.1 259.1 245.9 246.6 233.4zM438.6 233.4l-160-160c-12.5-12.5-32.75-12.5-45.25 0s-12.5 32.75 0 45.25L370.8 256l-137.4 137.4c-12.5 12.5-12.5 32.75 0 45.25C239.6 444.9 247.8 448 256 448s16.38-3.125 22.62-9.375l160-160C451.1 266.1 451.1 245.9 438.6 233.4z"
+                /></svg
             >
-                <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                />
-            </svg>
         </button>
     </section>
 </header>
 
 <style>
     header {
-        background-color: #fff;
-        box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.14),
-            0 3px 3px -2px rgba(0, 0, 0, 0.12), 0 1px 8px 0 rgba(0, 0, 0, 0.2);
+        background: #262626;
+        color: #fff;
         align-items: center;
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr minmax(100px, 1fr) 1fr;
     }
 
     section {
         position: relative;
-        padding: 1rem;
+        padding: 1rem 0;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -72,12 +71,14 @@
 
     .month {
         font-size: 1.5rem;
+        font-weight: 600;
         margin: 0;
     }
 
     .year {
         font-size: 1.2rem;
         margin-top: 0.2rem;
+        font-weight: 400;
         margin-bottom: 0;
     }
 
@@ -94,31 +95,17 @@
         place-content: center;
         border-radius: 50%;
         border: 0;
-        background: #fff;
-        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-            0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+        background: none;
+        color: #12cfe8;
+        transition: all 0.2s;
     }
 
     button:hover {
-        background: #e5e5e5;
-        box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14),
-            0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+        background: #12cfe8;
+        color: #121212;
     }
 
     button:active {
-        background: #d4d4d4;
-        box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14),
-            0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.2);
-    }
-
-    .picker {
-        display: none;
-        position: absolute;
-        top: 100%;
-        margin-top: 1.5rem;
-        width: 200px;
-        box-shadow: 0 8px 10px 1px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.20);
-        background: #fff;
-        height: 200px;
+        background: #0b7c8b;
     }
 </style>

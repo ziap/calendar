@@ -1,11 +1,11 @@
 <script>
-    import { onMount } from "svelte";
-    import Header from "$lib/Header.svelte"
+    import Header from "$lib/Header.svelte";
     import Solar from "$lib/Solar.svelte";
     import Lunar from "$lib/Lunar.svelte";
+    import DatePicker from "$lib/DatePicker.svelte";
+    import { onMount } from "svelte";
 
-    /**@type {Date}*/
-    let date;
+    let date = new Date(0);
 
     onMount(() => (date = new Date()));
 </script>
@@ -15,31 +15,44 @@
 </svelte:head>
 
 <div class="container">
-    <img src="/bg.jpg" alt="background" />
-    {#if date}
-        <Header bind:date/> 
+    <Header bind:date />
+    <div class="display">
         <Solar {date} />
         <Lunar {date} />
-    {/if}
+    </div>
+    <DatePicker bind:date />
 </div>
 
 <style>
-
     .container {
         position: absolute;
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-columns: 3fr 5fr;
+        grid-template-rows: minmax(min-content, max-content) 1fr;
+        inset: 0;
+    }
+
+    .display {
+        overflow: hidden;
+        background: url("/bg.jpg") center / cover;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        inset: 0;
-        overflow: hidden;
     }
 
-    img {
-        z-index: -1;
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+    @media (max-width: 800px) {
+        .display {
+            display: none;
+        }
+
+        .container {
+            grid-auto-flow: row;
+            grid-template-columns: 1fr;
+            grid-template-rows:
+                minmax(min-content, max-content)
+                minmax(min-content, min-content)
+                1fr;
+        }
     }
 </style>

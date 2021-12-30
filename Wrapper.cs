@@ -6,8 +6,8 @@ class Wraper : System.Windows.Forms.Form
     Wraper()
     {
         // Initial form configuration
-        Width = 450;
-        Height = 800;
+        Width = 1024;
+        Height = 768;
         Text = "Loading...";
         StartPosition = FormStartPosition.CenterScreen;
         InitWebView();
