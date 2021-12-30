@@ -19,13 +19,13 @@
 </script>
 
 <header>
-    <div class="weekday">SUN</div>
-    <div class="weekday">MON</div>
-    <div class="weekday">TUE</div>
-    <div class="weekday">WED</div>
-    <div class="weekday">THU</div>
-    <div class="weekday">FRI</div>
-    <div class="weekday">SAT</div>
+    <div class="weekday">CN</div>
+    <div class="weekday">T2</div>
+    <div class="weekday">T3</div>
+    <div class="weekday">T4</div>
+    <div class="weekday">T5</div>
+    <div class="weekday">T6</div>
+    <div class="weekday">T7</div>
 </header>
 <main>
     {#each dates as d, i}
@@ -75,7 +75,7 @@
         padding: 2rem;
         display: grid;
         grid-template-columns: repeat(7, 1fr);
-        grid-template-rows: repeat(7, 1fr);
+        grid-template-rows: repeat(6, 1fr) minmax(min-content, max-content);
     }
 
     .date {
@@ -111,6 +111,7 @@
     }
 
     footer {
+        margin-top: 2rem;
         grid-column: span 7;
         display: flex;
         align-items: center;
