@@ -6,7 +6,7 @@ const config = {
 		adapter: adapter({
 			pages: 'wwwroot',
 		}),
-		
+
 		// hydrate the <div id="svelte"> element in src/app.html
 		target: '#svelte'
 	}
