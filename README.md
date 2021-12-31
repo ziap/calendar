@@ -2,6 +2,10 @@
 
 A Vietnamese calendar desktop app powered by [WebView2](https://developer.microsoft.com/en-us/microsoft-edge/webview2/) and [SvelteKit](https://kit.svelte.dev/).
 
+## Screenshots
+
+![Screenshot](screenshots.png)
+
 ## Requirements
  - Windows operating system
  - NET 6.0 [download](https://dotnet.microsoft.com/en-us/download)
