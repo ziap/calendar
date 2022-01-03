@@ -36,7 +36,6 @@
     }
 
     .display {
-        overflow: hidden;
         background: url("/bg.jpg") center / cover;
         display: flex;
         flex-direction: column;
