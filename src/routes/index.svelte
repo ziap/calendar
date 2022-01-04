@@ -4,6 +4,7 @@
     import Lunar from "$lib/Lunar.svelte";
     import DatePicker from "$lib/DatePicker.svelte";
     import { onMount } from "svelte";
+    import Navigate from "$lib/Navigate.svelte";
 
     /**@type {Date}*/
     let date;
@@ -11,8 +12,15 @@
 </script>
 
 <svelte:head>
-    <title>Lịch vạn niên</title>
+    <title>
+        {date
+            ? `${date.toLocaleDateString("vi-VN", { dateStyle: "full" })} - `
+            : ""}
+        Lịch vạn niên
+    </title>
 </svelte:head>
+
+<Navigate bind:date />
 
 {#if date}
     <div class="container">

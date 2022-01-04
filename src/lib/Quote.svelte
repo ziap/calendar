@@ -39,7 +39,7 @@
 </script>
 
 <blockquote>
-    {quote.content}
+    {@html quote.content}
     <footer>
         &mdash; <cite>{quote.author}</cite>
     </footer>
