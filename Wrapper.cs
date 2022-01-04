@@ -8,6 +8,10 @@ class Wraper : System.Windows.Forms.Form
         // Initial form configuration
         Width = 1024;
         Height = 768;
+#if (!DEBUG)
+        var bitmap = (Bitmap)Image.FromFile("wwwroot/favicon.png");
+        Icon = Icon.FromHandle(bitmap.GetHicon());
+#endif
         Text = "Loading...";
         StartPosition = FormStartPosition.CenterScreen;
         InitWebView();
@@ -27,6 +31,7 @@ class Wraper : System.Windows.Forms.Form
         webView.CoreWebView2.Settings.IsStatusBarEnabled = false;
 #endif
         webView.CoreWebView2.DocumentTitleChanged += (sender, e) => Text = webView.CoreWebView2.DocumentTitle;
+        webView.CoreWebView2.WindowCloseRequested += (sender, e) => Application.Exit();
         Controls.Add(webView);
     }
 
