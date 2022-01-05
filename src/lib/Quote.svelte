@@ -1,5 +1,6 @@
 <script>
     import quotes from "$lib/json/quotes.json";
+    import getHoliday from "./holiday";
 
     /**@type {Date}*/
     export let date;
@@ -25,6 +26,8 @@
         );
     }
 
+    $: holiday = getHoliday(date);
+
     $: quote =
         quotes[
             hash(
@@ -39,10 +42,17 @@
 </script>
 
 <blockquote>
-    {@html quote.content}
-    <footer>
-        &mdash; <cite>{quote.author}</cite>
-    </footer>
+    {#if holiday}
+        {holiday.name}
+        <footer>
+            <cite>{holiday.when}</cite>
+        </footer>
+    {:else}
+        {@html quote.content}
+        <footer>
+            &mdash; <cite>{quote.author}</cite>
+        </footer>
+    {/if}
 </blockquote>
 
 <style>

@@ -1,0 +1,31 @@
+{
+    "solar": {
+        "1-1": "Năm mới",
+        "30-4": "Ngày Giải phóng miền Nam",
+        "1-5": "Quốc khánh",
+        "2-9": "Ngày thành lập Đảng",
+        "8-3": "Ngày Quốc tế Phụ nữ",
+        "21-4": "Ngày sách Việt Nam",
+        "7-5": "Ngày Chiến thắng Điện Biên Phủ",
+        "19-5": "Ngày sinh Chủ tịch Hồ Chí Minh",
+        "1-6": "Ngày Quốc tế Thiếu Nhi",
+        "28-6": "Ngày Gia đình Việt Nam",
+        "27-7": "Ngày Thương Binh Liệt Sĩ",
+        "19-8": "Ngày cách mạng Tháng Tám",
+        "10-10": "Ngày giải phóng Thủ Đô",
+        "20-10": "Ngày Phụ nữ Việt Nam",
+        "20-11": "Ngày Nhà giáo Việt Nam",
+        "22-12": "Ngày hội Quốc phòng Toàn dân"
+    },
+    "lunar": {
+        "1-1": "Tết Nguyên Đán",
+        "10-3": "Giỗ tổ Hùng Vương",
+        "5-1": "Chiến thắng Ngọc Hồi - Đống Đa",
+        "15-1": "Tết Nguyên Tiêu",
+        "15-4": "Lễ Phật đản",
+        "5-5": "Tết Đoan ngọ",
+        "15-7": "Rằm Tháng Bảy, Vu Lan",
+        "15-8": "Tết Trung Thu",
+        "23-12": "Ông Táo chầu trời"
+    }
+}

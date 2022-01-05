@@ -1,5 +1,6 @@
 <script>
     import { Lunar } from "lunar-calendar-ts-vi";
+    import getHoliday from "./holiday";
 
     /**@type {Date}*/
     export let date;
@@ -32,7 +33,8 @@
         {#if d.getMonth() == month}
             <button
                 class="date"
-                title={d.toLocaleString("vi-VN", {dateStyle: 'full'})}
+                class:highlight={getHoliday(d)}
+                title={d.toLocaleString("vi-VN", { dateStyle: "full" })}
                 class:active={d.getDate() == date.getDate()}
                 on:click={() => (date = d)}
             >
@@ -89,7 +91,12 @@
         transition: all 0.2s;
     }
 
-    .date:hover {
+    .highlight {
+        color: #e4dd76;
+    }
+
+    .date:hover,
+    .highlight:hover {
         background: #2e2e2e;
     }
 
