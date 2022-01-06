@@ -30,6 +30,7 @@ class Wraper : System.Windows.Forms.Form
         webView.CoreWebView2.Settings.AreDevToolsEnabled = false;
         webView.CoreWebView2.Settings.IsStatusBarEnabled = false;
 #endif
+        webView.NavigationCompleted += (sender, e) => webView.Focus();
         webView.CoreWebView2.DocumentTitleChanged += (sender, e) => Text = webView.CoreWebView2.DocumentTitle;
         webView.CoreWebView2.WindowCloseRequested += (sender, e) => Application.Exit();
         Controls.Add(webView);
