@@ -6,9 +6,9 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <!-- Create a single ~150MB executable
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     <PublishSelfContained>true</PublishSelfContained>
-    <!-- Create a single ~150MB executable
     <IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
     <PublishReadyToRun>true</PublishReadyToRun>
     <PublishSingleFile>true</PublishSingleFile>

@@ -20,7 +20,7 @@ class Wraper : System.Windows.Forms.Form
     async void InitWebView()
     {
         var webView = new WebView2() { Dock = DockStyle.Fill };
-        var env = await CoreWebView2Environment.CreateAsync(null, Path.Combine(Application.StartupPath, "userdata"), null);
+        var env = await CoreWebView2Environment.CreateAsync(null, Path.Combine(Path.GetTempPath(), Application.ProductName), null);
         await webView.EnsureCoreWebView2Async(env);
 #if (DEBUG)
         webView.Source = new Uri("http://localhost:3000");
