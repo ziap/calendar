@@ -96,16 +96,16 @@
         border-radius: 50%;
         border: 0;
         background: none;
-        color: #12cfe8;
+        color: var(--main);
         transition: all 0.2s;
     }
 
     button:hover {
-        background: #12cfe8;
-        color: #121212;
+        background: var(--main-hover);
+        color: var(--background);
     }
 
     button:active {
-        background: #0b7c8b;
+        background: var(--main-active);
     }
 </style>

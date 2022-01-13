@@ -1,7 +1,8 @@
-const autoprefixer = require("autoprefixer");
-
 const config = {
-  plugins: [autoprefixer],
+  plugins: [
+    require("postcss-normalize"),
+    require("autoprefixer")
+  ],
 };
 
 module.exports = config;

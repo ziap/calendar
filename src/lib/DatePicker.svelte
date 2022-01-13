@@ -73,7 +73,7 @@
     }
 
     main {
-        background: #121212;
+        background: var(--background);
         padding: 2rem;
         display: grid;
         grid-template-columns: repeat(7, 1fr);
@@ -101,8 +101,8 @@
     }
 
     .date.active {
-        background: #12cfe8;
-        color: #121212;
+        background: var(--main); 
+        color: var(--background);
         border-radius: 1rem;
     }
 
@@ -126,7 +126,7 @@
     .today-btn {
         background: none;
         border: none;
-        color: #12cfe8;
+        color: var(--main);
         padding: 0.5rem 1.5rem;
         font-size: 1.2rem;
         border-radius: 3rem;
@@ -134,12 +134,12 @@
     }
 
     .today-btn:hover {
-        background: #12cfe8;
-        color: #121212;
+        background: var(--main-hover);
+        color: var(--background);
     }
 
     .today-btn:active {
-        background: #0b7c8b;
+        background: var(--main-active);
     }
 
     @media (max-width: 800px) {
